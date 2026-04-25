@@ -126,7 +126,10 @@ const Appointment = () => {
   }, [doctors, docId]);
 
   useEffect(() => {
-    getAvilableSlots();
+    if (docInfo) {
+       getAvilableSlots();
+    }
+   
   }, [docInfo]);
 
   useEffect(() => {
