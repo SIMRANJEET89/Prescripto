@@ -43,10 +43,10 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-4">
         {token && userData ? (
-          <div className="flex items-center gap-2 cursor-pointer group relative">
+          <div onClick={() => setShowMenu(!showMenu)} className="flex items-center gap-2 cursor-pointer group relative">
             <img className="w-8 rounded-full" src={userData.image} alt="" />
 
-            <img onClick={() => setShowMenu(!showMenu)}
+            <img 
               className="w-2.5 invert brightness-0"
               src={assets.dropdown_icon}
               alt=""
