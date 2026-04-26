@@ -48,7 +48,9 @@ const Navbar = () => {
       <div className="flex items-center gap-4 relative">
         {token && userData ? (
           <div 
-          onClick={() => {setShowMenu(!showMenu)
+          onClick={(e) => {
+            e.stopPropagation()
+            setShowMenu(!showMenu)
            setMobileMenu(false)}} className="flex items-center gap-2 cursor-pointer group relative">
             
             <img className="w-8 rounded-full" src={userData.image} alt="" />
@@ -90,8 +92,10 @@ const Navbar = () => {
           </button>
         )}
         <img
-          onClick={() => {setShowMenu(true);
-            setMobileMenu(false)
+          onClick={(e) =>{ 
+            e.stopPropagation()
+            setShowMenu(false)
+            setMobileMenu(true)
           }}
           className="w-6 md:hidden"
           src={assets.menu_icon}
@@ -99,7 +103,7 @@ const Navbar = () => {
         />
         {/* mobile menu */}
         <div
-          className={`${mobileMenu? "fixed w-full h-full" : "h-0 w-0 overflow-hidden"}md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}
+          className={`${mobileMenu? "fixed w-full h-full" : "h-0 w-0 overflow-hidden"} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}
         >
           <div className="flex items-center justify-between px-5 py-6">
             <img className="w-36" src={assets.logo} alt="" />
